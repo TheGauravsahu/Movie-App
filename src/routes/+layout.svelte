@@ -43,6 +43,6 @@
   .Logo{
 	text-decoration: none;
 	color: white;
-	font-size: 2vw;
+	font-size: 20px;
   }
 </style>

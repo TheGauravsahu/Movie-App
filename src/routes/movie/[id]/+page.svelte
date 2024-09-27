@@ -78,6 +78,7 @@
 
 	img {
 		width: 100%;
+		object-fit: cover;
 	}
 
 	.left {
@@ -131,5 +132,32 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	@media (max-width: 768px) {
+		.movie-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.title {
+			font-size: 2.5vh;
+		}
+
+		.right {
+			width: 100%;
+		}
+
+		img {
+			width: 100%;
+			object-fit: cover;
+		}
+
+		.left {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
 	}
 </style>
