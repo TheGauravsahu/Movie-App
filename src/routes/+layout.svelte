@@ -19,7 +19,7 @@
 <slot />
 
 <footer>
-	<p>&copy; 2022 Movie App. All rights reserved.</p>
+	<p>&copy; 2024 Movie App. All rights reserved.</p>
 </footer>
 
 <style>
