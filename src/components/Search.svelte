@@ -77,14 +77,14 @@
 	}
 
 	.icon {
-		height: 1rem;
+		height: 1em;
 		width: 1rem;
 		opacity: 0.7;
 		margin-left: 0.5rem;
 	}
 
 	.btn {
-		width: 7vw;
+		width: 70px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -92,8 +92,8 @@
 	}
 	.btn2 {
 		background-color: red;
-		width: 5vw;
-		height: 4vw;
+		width: 70px;
+		height: 45px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
