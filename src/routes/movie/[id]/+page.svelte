@@ -1,5 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
+	import { cubicIn, quintIn } from 'svelte/easing';
 
 	let movie;
 	export let data;
@@ -17,7 +19,10 @@
 			<div class="right">
 				<img src={movie.Poster} alt={movie.Title} class="" />
 			</div>
-			<div class="left">
+			<div
+				class="left"
+				transition:slide={{ delay: 250, duration: 400, axis: 'x', easing: quintIn }}
+			>
 				<li class="title">{movie.Title}</li>
 				<li class="year">Year: {movie.Year}</li>
 				<li class="rated">Rated: {movie.Rated}</li>

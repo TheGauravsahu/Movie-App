@@ -2,17 +2,19 @@
 	import { onMount } from 'svelte';
 	import Popular from '../components/Popular.svelte';
 	import Search from '../components/Search.svelte';
+	import { fade, fly } from 'svelte/transition';
+	import { cubicIn } from 'svelte/easing';
 
 	let movies = [];
 	export let data;
 	let defaultMovies = [];
 
 	const updateMovies = (newMovies) => {
-		movies = newMovies || []; // Update movies with new data or set to an empty array
+		movies = newMovies || [];
 	};
 
 	const resetMovies = () => {
-		movies = defaultMovies; // Reset movies to default
+		movies = defaultMovies;
 	};
 
 	onMount(async () => {
@@ -24,22 +26,23 @@
 
 <section>
 	<Search searchMovies={updateMovies} {resetMovies} />
-	<!-- <Popular {movies} /> -->
+	<!-- Popular -->
 	<div>
 		<h1>Popular Movies</h1>
 		<div class="card-wrapper">
-			{#if movies.length > 0}
-				{#each movies as movie}
-					<a href={`/movie/${movie.imdbID}`} aria-label={`View details for ${movie.Title}`}>
-						<div class="card">
-							<img src={movie.Poster} alt={movie.Title} />
-							<p class="title">{movie.Title}</p>
-							<p class="year">{movie.Year}</p>
-							<p class="type">{movie.Type}</p>
-						</div>
-					</a>
-				{/each}
-			{/if}
+			{#each movies as movie}
+				<a href={`/movie/${movie.imdbID}`} aria-label={`View details for ${movie.Title}`}>
+					<div
+						class="card"
+						transition:fly={{ delay: 250, duration: 300, axis: 'x', easing: cubicIn }}
+					>
+						<img src={movie.Poster} alt={movie.Title} />
+						<p class="title">{movie.Title}</p>
+						<p class="year">{movie.Year}</p>
+						<p class="type">{movie.Type}</p>
+					</div>
+				</a>
+			{/each}
 		</div>
 	</div>
 </section>
