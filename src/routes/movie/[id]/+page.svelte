@@ -1,28 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 
-	let id;
 	let movie;
+	export let data;
 
-	$: id = $page.params.id;
-
-	onMount(async () => {
-		if (id) {
-			try {
-				const res = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=bb7b3d02`);
-				const data = await res.json();
-				console.log(data);
-
-				if (data.Response === 'True') {
-					movie = data;
-				} else {
-					console.error('Movie not found:', data.Error);
-				}
-			} catch (error) {
-				console.log('Fetch error:', error);
-			}
-		}
+	onMount(() => {
+		movie = data.movie;
 	});
 </script>
 
@@ -58,9 +41,7 @@
 			</div>
 		</div>
 	{:else}
-		<div class="spinner-wrapper">
-			<div class="spinner"></div>
-		</div>
+		<p>Loading..</p>
 	{/if}
 </section>
 
@@ -105,33 +86,6 @@
 		margin-bottom: 0;
 		font-size: 0.9rem;
 		color: #c9d5e1;
-	}
-
-	.spinner {
-		border: 8px solid #f3f3f3; /* Light gray */
-		border-top: 8px solid #3498db; /* Blue */
-		border-radius: 50%;
-		width: 50px;
-		height: 50px;
-		animation: spin 1s linear infinite;
-		margin: 20px auto; /* Center the spinner */
-	}
-
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
-	}
-
-	.spinner-wrapper {
-		height: 100%;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
 	@media (max-width: 768px) {

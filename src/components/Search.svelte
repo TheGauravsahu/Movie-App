@@ -106,4 +106,10 @@
 		justify-content: center;
 		gap: 1px;
 	}
+
+	@media (max-width: 768px) {
+		.input {
+			width: 100%;
+		}
+	}
 </style>
