@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import Popular from '../components/Popular.svelte';
 	import Search from '../components/Search.svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { cubicIn } from 'svelte/easing';
 
 	let movies = [];
@@ -31,7 +31,11 @@
 		<h1>Popular Movies</h1>
 		<div class="card-wrapper">
 			{#each movies as movie}
-				<a href={`/movie/${movie.imdbID}`} aria-label={`View details for ${movie.Title}`}>
+				<a
+					href={`/movie/${movie.imdbID}`}
+					aria-label={`View details for ${movie.Title}`}
+					data-sveltekit-prefetch
+				>
 					<div
 						class="card"
 						transition:fly={{ delay: 250, duration: 300, axis: 'x', easing: cubicIn }}

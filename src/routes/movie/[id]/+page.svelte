@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import { cubicIn, quintIn } from 'svelte/easing';
+	import { quintIn } from 'svelte/easing';
 
 	let movie;
 	export let data;

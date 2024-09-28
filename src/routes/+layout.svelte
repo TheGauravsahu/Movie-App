@@ -2,12 +2,11 @@
 	import '@picocss/pico';
 	import '../app.css';
 	import '@fontsource-variable/manrope';
-
 </script>
 
 <nav>
 	<ul>
-		<li><strong><a class="Logo" href="/">Movie App</a></strong></li>
+		<li><strong><a data-sveltekit-prefetch class="Logo" href="/">Movie App</a></strong></li>
 	</ul>
 	<ul>
 		<li><a href="/about">About</a></li>
@@ -34,15 +33,15 @@
 		padding: 0 8vw;
 	}
 
-  footer p{
-    text-align: center;
-    color: #666;
-    padding-bottom: 8vw;
-  }
+	footer p {
+		text-align: center;
+		color: #666;
+		padding-bottom: 8vw;
+	}
 
-  .Logo{
-	text-decoration: none;
-	color: white;
-	font-size: 20px;
-  }
+	.Logo {
+		text-decoration: none;
+		color: white;
+		font-size: 20px;
+	}
 </style>
